@@ -11,6 +11,8 @@ It is an interesting problem to understand how a random starting point transitio
 
 ## Usage
 
+clone this repo and install the requirements:
+
 ```bash
 git clone https://github.com/wowowo-wo/visualize_gradient_flow_in_latent_space
 cd visualize_gradient_flow_in_latent_space
