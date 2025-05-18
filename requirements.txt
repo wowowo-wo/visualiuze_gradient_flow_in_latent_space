@@ -1,0 +1,17 @@
+#needed
+torch
+diffusers
+transformers
+pillow
+matplotlib
+
+# optional for SSIM loss
+pytorch-msssim
+
+# optional for LPIPS loss
+lpips
+
+
+# optional for Sinkhorn loss
+geomloss
+pykeops
