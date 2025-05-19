@@ -40,6 +40,44 @@ Learning rate for the optimizer. Controls the size of each update step. Default 
 --output_path
 File path where the final output gif will be saved. Default is grad_result.gif.
 
+
+The GIFs below show how different loss functions affect the transformation process.
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="ex/miku_mse.gif" width="200"><br>
+      <b>MSE</b>
+    </td>
+    <td align="center">
+      <img src="ex/miku_l1.gif" width="200"><br>
+      <b>L1</b>
+    </td>
+    <td align="center">
+      <img src="ex/miku_ssim.gif" width="200"><br>
+      <b>SSIM</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="ex/miku_vgg.gif" width="200"><br>
+      <b>VGG</b>
+    </td>
+    <td align="center">
+      <img src="ex/miku_lpips.gif" width="200"><br>
+      <b>LPIPS</b>
+    </td>
+    <td align="center">
+      <img src="ex/miku_psnr.gif" width="200"><br>
+      <b>PSNR</b>
+    </td>
+  </tr>
+</table>
+
+common target:
+
+<img src="ex/miku.jpg" width="400">
+
 ## requirements
 
 ```bash
