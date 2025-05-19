@@ -23,7 +23,7 @@ python3 cli.py --image_path PATH [--loss_type TYPE] [--steps N] [--skip_step N] 
 ### Parameters
 
 --image_path
-Path to the target image. (Required)
+Path to the target image. (required)
 
 --loss_type
 Which loss function to use for optimization. Default is mse. Options include mse, l1, ssim, vgg, lpips, psnr, tv, and sinkhorn.
