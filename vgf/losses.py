@@ -19,32 +19,36 @@ try:
 except ImportError:
     use_sinkhorn = False
 
-
 class VGGPerceptualLoss(torch.nn.Module):
     def __init__(self):
         super().__init__()
         from torchvision.models import vgg16
-        vgg = vgg16(pretrained=True).features[:16]
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        vgg = vgg16(pretrained=True).features[:16].to(self.device)
         for p in vgg.parameters():
             p.requires_grad = False
         self.vgg = vgg
-        self.mean = torch.tensor([0.485, 0.456, 0.406]).view(1,3,1,1)
-        self.std  = torch.tensor([0.229, 0.224, 0.225]).view(1,3,1,1)
+        self.mean = torch.tensor([0.485, 0.456, 0.406], device=self.device).view(1, 3, 1, 1)
+        self.std = torch.tensor([0.229, 0.224, 0.225], device=self.device).view(1, 3, 1, 1)
 
     def forward(self, x, y):
-        x = (x - self.mean.to(x.device)) / self.std.to(x.device)
-        y = (y - self.mean.to(y.device)) / self.std.to(y.device)
-        return F.mse_loss(self.vgg(x), self.vgg(y))
+        x = (x - self.mean) / self.std
+        y = (y - self.mean) / self.std
+        return F.mse_loss(self.vgg(x.to(self.device)), self.vgg(y.to(self.device)))
+
 
 class LPIPSLoss(torch.nn.Module):
     def __init__(self):
         super().__init__()
-        self.lpips_model = lpips.LPIPS(net='vgg')
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.lpips_model = lpips.LPIPS(net='vgg').to(self.device)
         self.lpips_model.eval()
         for p in self.lpips_model.parameters():
             p.requires_grad = False
 
     def forward(self, x, y):
+        x = x.to(self.device)
+        y = y.to(self.device)
         return self.lpips_model(x, y).mean()
 
 
