@@ -16,7 +16,7 @@ clone this repo and install the requirements:
 ```bash
 git clone https://github.com/wowowo-wo/visualize_gradient_flow_in_latent_space
 cd visualize_gradient_flow_in_latent_space
-pip install requirements.txt
+pip install -r requirements.txt
 python3 cli.py --image_path PATH [--loss_type TYPE] [--steps N] [--skip_step N] [--lr LR] [--output_path PATH]
 ```
 
