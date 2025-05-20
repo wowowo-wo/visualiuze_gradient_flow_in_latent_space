@@ -81,7 +81,7 @@ common target:
 ## requirements
 
 ```bash
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 requirements.txt contains both the essential dependencies for the main program and optional ones used for certain loss functions.
