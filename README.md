@@ -78,7 +78,7 @@ common target:
 
 <img src="ex/miku.jpg" width="400">
 
-## requirements
+## Requirements
 
 ```bash
 pip install -r requirements.txt
@@ -86,7 +86,7 @@ pip install -r requirements.txt
 
 requirements.txt contains both the essential dependencies for the main program and optional ones used for certain loss functions.
 
-## background
+## Background
 
 Recently, deep generative models like VAEs and diffusion models have gained a lot of attention for their ability to generate and represent images. Rather than training a new model from scratch, this project explores the latent space of a pretrained VAE, gradually optimizing a latent vector through gradient-based methods to reconstruct a specific target image.
 
